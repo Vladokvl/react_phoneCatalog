@@ -1,67 +1,65 @@
-React Phone Catalog
 
-Simple React + TypeScript phone catalog demo built with Vite.
+# React Phone Catalog
 
-Features
-- Product listing pages (phones, tablets, accessories)
-- Product detail pages
-- Cart and favourites contexts with basic state management
-- Product carousel using Swiper
-- Responsive layout and SCSS-based styles
+A compact demo phone catalog built with React, TypeScript, and Vite. It showcases product listings, product detail pages, a shopping cart and favourites using React Context, responsive layouts, and SCSS-based styling.
 
-Requirements
-- Node.js 20+ (recommended)
-- npm
+## Features
 
-Setup
+- Product listings (phones, tablets, accessories)
+- Product detail pages with images and specifications
+- Cart and favourites (React Context)
+- Product carousel for showcasing items
+- Responsive SCSS-based styling
+
+## Tech stack
+
+- React 18
+- TypeScript
+- Vite
+- Sass (SCSS)
+- Bulma
+
+
+Quick start
+-----------
 1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. (Optional) If you see errors about `swiper` not found, install it:
-
-```bash
-npm install swiper
-```
-
-3. Start dev server:
+2. Start the development server:
 
 ```bash
 npm start
 ```
 
-4. Build for production:
+3. Create a production build:
 
 ```bash
 npm run build
 ```
 
-Project Structure
-- `src/` — application source
-  - `api/` — API client and data loaders
-  - `components/` — React components (ProductCard, ProductCarousel, etc.)
+Available scripts
+-----------------
+- `npm start` — run the dev server
+- `npm run build` — build for production
+- `npm run format` — format code with Prettier
+- `npm run lint` — run linters and style checks
+- `npm run style-format` — format SCSS files
+
+Project structure
+-----------------
+- `public/` — static assets and mock API datasets
+- `src/` — application source code
+  - `api/` — API client and local data
+  - `components/` — UI components (e.g. ProductCard, ProductCarousel)
   - `context/` — `CartContext` and `FavouritesContext`
   - `pages/` — route pages (Home, Cart, ProductDetails, etc.)
-  - `styles/` — SCSS utilities and variables
+  - `styles/` — SCSS variables and utilities
+  - `types/` — TypeScript types
+  - `utils/` — helper utilities
 
-Notes
-- Dev server error "Failed to resolve import 'swiper/react'" means `swiper` is not installed; run `npm install swiper`.
-- The project uses Mate Academy starter scripts (`mate-scripts`) for running and building.
 
-What was implemented
-- Catalog UI with product cards and carousel
-- Cart and favourites contexts for managing user selections
-- Swiper integration for the product carousel (requires `swiper` package)
 
-If you want, I can install `swiper` and start the dev server now.
-# React TypeScript Starter Pack
 
-To use this template click `Use this template`
-
-### Available Scripts
-
-`Deploy` - available to deploy your application to gh-pages, to deploy the project, change the second line of code in package.json, specifically the homepage value, from "." to the repository name
-
-`SCSS Preprocessor` - available to write your styles with modern style language
