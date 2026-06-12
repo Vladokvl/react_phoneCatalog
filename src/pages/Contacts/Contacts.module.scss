@@ -1,0 +1,29 @@
+@use '../../styles/variables';
+@use '../../styles/grid';
+
+.contactsPage {
+  @include grid.container;
+
+  padding-top: 32px;
+  padding-bottom: 48px;
+  color: variables.$color-text;
+
+  &__title {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .contactsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    a {
+      color: variables.$color-text;
+      text-decoration: underline;
+    }
+  }
+}

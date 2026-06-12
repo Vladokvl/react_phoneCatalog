@@ -1,5 +1,5 @@
-@import './styles/variables';
-@import './styles/grid';
+@use './styles/variables';
+@use './styles/grid';
 
 // Font faces
 @font-face {
@@ -46,19 +46,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $color-text;
-  background-color: $color-background;
+  color: variables.$color-text;
+  background-color: variables.$color-background;
   line-height: 1.5;
 }
 
 // Utility: container (full-width with max-width and padding)
 .container {
-  @include container;
+  @include grid.container;
 }
 
 // Utility: grid container
 .grid {
-  @include grid-container;
+  @include grid.grid-container;
 }
 
 // Utility: visually hidden (accessible, not display:none)

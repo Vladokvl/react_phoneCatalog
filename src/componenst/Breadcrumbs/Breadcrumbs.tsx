@@ -19,8 +19,10 @@ const resolveUrl = (path: string) => {
 };
 
 const Breadcrumbs: React.FC = () => {
-  const { pathname } = useLocation();
-  const prevPageFromStorage = sessionStorage.getItem('prevPage') || '/';
+  const location = useLocation();
+  const { pathname } = location;
+  const listingRaw = sessionStorage.getItem('productsListingPrev');
+  const prevGeneral = sessionStorage.getItem('prevPage') || '/';
   const productNameFromStorage = sessionStorage.getItem('productName') || '';
 
   // On cart page, show Back button instead of breadcrumbs
@@ -29,7 +31,7 @@ const Breadcrumbs: React.FC = () => {
       <nav className={styles.breadcrumbs}>
         <ol className={styles.list}>
           <li className={styles.item}>
-            <Link to={prevPageFromStorage} className={styles.backButton}>
+            <Link to={prevGeneral} className={styles.backButton}>
               <img
                 src={resolveUrl('icons/Chevron (Arrow Right).svg')}
                 alt=""
@@ -76,11 +78,29 @@ const Breadcrumbs: React.FC = () => {
       crumbs.push({ label: 'Favourites', path: '/favourites' });
     }
 
+    // Handle /contacts
+    if (segments[0] === 'contacts') {
+      crumbs.push({ label: 'Contacts', path: '/contacts' });
+    }
+
+    // Handle /rights
+    if (segments[0] === 'rights') {
+      crumbs.push({ label: 'Rights', path: '/rights' });
+    }
+
     // Handle 404
+    const allowed = [
+      'products',
+      'product',
+      'favourites',
+      'cart',
+      'contacts',
+      'rights',
+    ];
+
     if (
       segments[0] === '404' ||
-      (segments.length > 0 &&
-        !['products', 'product', 'favourites', 'cart'].includes(segments[0]))
+      (segments.length > 0 && !allowed.includes(segments[0]))
     ) {
       crumbs.push({ label: 'Not Found', path: pathname });
     }
@@ -97,12 +117,6 @@ const Breadcrumbs: React.FC = () => {
 
   // Check if we're on ProductDetails page
   const isProductDetails = pathname.startsWith('/product/');
-
-  // Only show Back button if prevPage exists AND it's different from current pathname
-  // (to avoid showing Back after page reload or direct link access)
-  const hasValidPrevPage =
-    sessionStorage.getItem('prevPage') &&
-    sessionStorage.getItem('prevPage') !== pathname;
 
   return (
     <>
@@ -140,16 +154,36 @@ const Breadcrumbs: React.FC = () => {
           ))}
         </ol>
       </nav>
-      {isProductDetails && hasValidPrevPage && (
+      {isProductDetails && (
         <div className={styles.backContainer}>
-          <Link to={prevPageFromStorage} className={styles.backButton}>
-            <img
-              src={resolveUrl('icons/Chevron (Arrow Right).svg')}
-              alt=""
-              className={styles.backArrow}
-            />
-            <span>Back</span>
-          </Link>
+          {/* Compute back target: prefer stored products listing (preserves filters),
+              otherwise derive from current product category */}
+          {(() => {
+            let backTo = prevGeneral;
+
+            // If we have a stored prev listing and it's a products listing, use it
+            if (listingRaw && listingRaw.startsWith('/products')) {
+              backTo = listingRaw;
+            } else {
+              // derive from current pathname (/product/:category/:id) -> /products/:category
+              const segs = pathname.split('/').filter(Boolean);
+
+              if (segs[0] === 'product' && segs[1]) {
+                backTo = `/products/${segs[1]}`;
+              }
+            }
+
+            return (
+              <Link to={backTo} className={styles.backButton}>
+                <img
+                  src={resolveUrl('icons/Chevron (Arrow Right).svg')}
+                  alt=""
+                  className={styles.backArrow}
+                />
+                <span>Back</span>
+              </Link>
+            );
+          })()}
         </div>
       )}
     </>

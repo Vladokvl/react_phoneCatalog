@@ -1,9 +1,9 @@
-@import '../../styles/variables';
-@import '../../styles/grid';
+@use '../../styles/variables';
+@use '../../styles/grid';
 
 /* Favourites page layout and grid */
 .favouritesPage {
-  @include container;
+  @include grid.container;
 
   padding-top: 32px;
   padding-bottom: 48px;
@@ -16,9 +16,9 @@
     line-height: 41px;
     letter-spacing: -1%;
     margin-bottom: 8px;
-    color: $color-text;
+    color: variables.$color-text;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       font-size: 48px;
       line-height: 56px;
     }
@@ -43,7 +43,7 @@
        Tablet large (1024-1199): 4 per row (span 3)
        Desktop (>=1200): 4 per row (span 6 of 24 columns)
     */
-    @include grid-span(4, 6, 6);
+    @include grid.grid-span(4, 6, 6);
 
     @media (min-width: 900px) and (max-width: 1023px) {
       grid-column: span 4; /* 3 per row */
@@ -56,7 +56,7 @@
 
   /* = Grid wrapper */
   &__grid {
-    @include grid-container;
+    @include grid.grid-container;
 
     gap: 16px;
   }

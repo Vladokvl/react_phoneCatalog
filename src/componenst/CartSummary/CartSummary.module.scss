@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables';
 
 .cartSummary {
   display: flex;
@@ -10,13 +10,13 @@
   width: 100%;
   max-width: 400px;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     flex-direction: row;
     justify-content: space-between;
     max-width: 600px;
   }
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     flex-direction: column;
     grid-column: 17 / 25;
     max-width: none;

@@ -1,18 +1,20 @@
-@import '../../styles/variables';
-@import '../../styles/grid';
+@use '../../styles/variables';
+@use '../../styles/grid';
 
 /* Products page layout and grid */
 .productsPage {
-  @include container;
+  @include grid.container;
 
   padding-top: 32px;
-  padding-bottom: 48px;
+
+  /* Reserve space for footer so sticky pagination doesn't overlap it */
+  padding-bottom: calc(48px + 257px);
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  @media (min-width: $tablet-min) {
-    padding-bottom: 48px;;
+  @media (min-width: variables.$tablet-min) {
+    padding-bottom: calc(48px + 94px);
   }
 
   /* = Title / header */
@@ -20,10 +22,10 @@
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 0;
-    color: $color-text;
+    color: variables.$color-text;
     width: 100%;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       font-size: 40px;
     }
   }
@@ -42,7 +44,7 @@
        Tablet large (1024-1199): 4 per row (span 3)
        Desktop (>=1200): 4 per row (span 6 of 24 columns)
     */
-    @include grid-span(4, 6, 6);
+    @include grid.grid-span(4, 6, 6);
 
     @media (min-width: 900px) and (max-width: 1023px) {
       grid-column: span 4; /* 3 per row */
@@ -55,7 +57,7 @@
 
   /* = Grid wrapper */
   &__grid {
-    @include grid-container;
+    @include grid.grid-container;
 
     gap: 16px;
   }
@@ -64,15 +66,21 @@
   &__paginationBottom {
     width: 100%;
     margin-top: 16px;
+    position: sticky;
+    bottom: 0;
+    padding: 12px 0;
+    background: variables.$color-background;
+    z-index: 20;
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
   }
 
   /* = Shared state block (loading / empty / error) */
   %products-page-state {
-    @include grid-span(4, 12, 24);
+    @include grid.grid-span(4, 12, 24);
 
     text-align: center;
     padding: 48px 20px;
-    color: $color-text-secondary;
+    color: variables.$color-text-secondary;
   }
 
   &__loading { @extend %products-page-state; }

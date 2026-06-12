@@ -6,17 +6,28 @@ import Footer from '../Footer/Footer';
 import styles from './Layout.module.scss';
 
 const Layout: React.FC = () => {
-  const { pathname } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     // Scroll to top on every route change
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Store previous page before navigating to cart
-    if (pathname !== '/cart') {
-      sessionStorage.setItem('prevPage', pathname);
+    // Store a general "prevPage" for non-product pages (used by cart back button)
+    if (
+      location.pathname !== '/cart' &&
+      !location.pathname.startsWith('/product')
+    ) {
+      sessionStorage.setItem('prevPage', location.pathname);
     }
-  }, [pathname]);
+
+    // If we're on a products listing page, remember the full listing URL (including search)
+    if (location.pathname.startsWith('/products')) {
+      sessionStorage.setItem(
+        'productsListingPrev',
+        `${location.pathname}${location.search}`,
+      );
+    }
+  }, [location]);
 
   return (
     <div className={styles.layout}>

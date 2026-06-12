@@ -1,0 +1,20 @@
+@use '../../styles/variables';
+@use '../../styles/grid';
+
+.rightsPage {
+  @include grid.container;
+
+  padding-top: 32px;
+  padding-bottom: 48px;
+  color: variables.$color-text;
+
+  &__title {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  a {
+    color: variables.$color-text;
+    text-decoration: underline;
+  }
+}

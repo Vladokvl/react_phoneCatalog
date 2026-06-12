@@ -1,8 +1,8 @@
-@import '../../styles/variables';
-@import '../../styles/grid';
+@use '../../styles/variables';
+@use '../../styles/grid';
 
 .notFoundPage {
-  @include container;
+  @include grid.container;
 
   display: flex;
   align-items: center;
@@ -10,12 +10,12 @@
   min-height: 70vh;
   padding: 40px 0;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     min-height: 80vh;
     padding: 60px 0;
   }
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     min-height: 90vh;
     padding: 80px 0;
   }
@@ -27,7 +27,7 @@
     gap: 24px;
     text-align: center;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       gap: 32px;
     }
   }
@@ -38,11 +38,11 @@
     height: auto;
     object-fit: contain;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       max-width: 420px;
     }
 
-    @media (min-width: $desktop-min) {
+    @media (min-width: variables.$desktop-min) {
       max-width: 500px;
     }
   }
@@ -54,14 +54,14 @@
     line-height: 41px;
     letter-spacing: -1%;
     margin: 0;
-    color: $color-text;
+    color: variables.$color-text;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       font-size: 48px;
       line-height: 56px;
     }
 
-    @media (min-width: $desktop-min) {
+    @media (min-width: variables.$desktop-min) {
       font-size: 56px;
       line-height: 65px;
     }
@@ -72,11 +72,11 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: $color-text-secondary;
+    color: variables.$color-text-secondary;
     margin: 0;
     max-width: 400px;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       font-size: 18px;
       line-height: 27px;
     }
@@ -88,7 +88,7 @@
     justify-content: center;
     padding: 12px 24px;
     background-color: #905bff;
-    color: $color-text;
+    color: variables.$color-text;
     text-decoration: none;
     font-family: Mont, sans-serif;
     font-weight: 600;

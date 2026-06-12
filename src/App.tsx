@@ -6,6 +6,8 @@ import Products from './pages/ProductPages';
 import ProductDetails from './pages/ProductDetails';
 import Favourites from './pages/Favourites';
 import Cart from './pages/Cart';
+import Contacts from './pages/Contacts';
+import Rights from './pages/Rights';
 import NotFoundPage from './pages/NotFoundPage';
 import React from 'react';
 import { CartProvider } from './context/CartContext';
@@ -27,6 +29,8 @@ export const App = () => (
               path="product/:category/:productId"
               element={<ProductDetails />}
             />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="rights" element={<Rights />} />
             <Route path="favourites" element={<Favourites />} />
             <Route path="cart" element={<Cart />} />
             <Route path="*" element={<NotFoundPage />} />

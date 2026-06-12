@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
 import { Product } from '../../types/Product';
 import { useFavourites } from '../../context/FavouritesContext';
@@ -66,12 +66,27 @@ const ProductCard: React.FC<Props> = ({
     }
   };
 
+  const location = useLocation();
+
+  const rememberListing = () => {
+    try {
+      // store current listing path + query so Back preserves filters/sort
+      sessionStorage.setItem(
+        'prevPage',
+        `${location.pathname}${location.search}`,
+      );
+    } catch (e) {
+      // ignore storage errors
+    }
+  };
+
   return (
     <article className={styles.card} data-id={product.id}>
       {/* 1. Image block */}
       <Link
         to={`/product/${product.category}/${(product as any).itemId ?? product.id}`}
         className={styles.media}
+        onClick={rememberListing}
       >
         <img src={img} alt={product.name} />
       </Link>
@@ -81,6 +96,7 @@ const ProductCard: React.FC<Props> = ({
         <Link
           to={`/product/${product.category}/${(product as any).itemId ?? product.id}`}
           className={styles.title}
+          onClick={rememberListing}
         >
           {product.name}
         </Link>

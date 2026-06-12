@@ -1,19 +1,19 @@
-@import '../../styles/variables';
-@import '../../styles/grid';
+@use '../../styles/variables';
+@use '../../styles/grid';
 
 .footer {
-  background: $color-surface;
-  border-top: 1px solid $color-border;
+  background: variables.$color-surface;
+  border-top: 1px solid variables.$color-border;
   height: 257px;
   margin-top: 64px;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     height: 94px;
     margin-top: 80px;
   }
 
   &__inner {
-    @include container;
+    @include grid.container;
 
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
     justify-content: center;
     height: 100%;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
@@ -48,7 +48,7 @@
     align-items: flex-start;
     justify-content: center;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       flex-direction: row;
       gap: 32px;
     }
@@ -61,7 +61,7 @@
     line-height: 11px;
     letter-spacing: 4%;
     text-decoration: none;
-    color: $color-text;
+    color: variables.$color-text;
     text-transform: uppercase;
     transition: color 0.2s;
 
@@ -78,7 +78,7 @@
     flex-shrink: 0;
     gap: 16px;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       width: auto;
     }
 
@@ -103,7 +103,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    color: $color-text-secondary;
+    color: variables.$color-text-secondary;
     font-family: Mont, sans-serif;
     font-size: 12px;
     font-weight: 800;
@@ -114,7 +114,7 @@
     justify-content: center;
 
     &:hover {
-      color: $color-text;
+      color: variables.$color-text;
     }
   }
 

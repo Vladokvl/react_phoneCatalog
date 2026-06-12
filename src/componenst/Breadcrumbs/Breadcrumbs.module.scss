@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables';
 
 .breadcrumbs {
   padding: 24px 0;
@@ -47,7 +47,7 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  color: $color-text;
+  color: variables.$color-text;
   text-decoration: none;
   font-size: 14px;
   font-family: Mont, sans-serif;
@@ -73,7 +73,7 @@
 }
 
 .link {
-  color: $color-text;
+  color: variables.$color-text;
   text-decoration: none;
   font-size: 14px;
   transition: color 200ms ease;

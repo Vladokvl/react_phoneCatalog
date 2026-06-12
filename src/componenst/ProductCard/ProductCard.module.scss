@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables';
 
 .card {
   display: flex;
@@ -6,7 +6,7 @@
   background: #161827;
   overflow: hidden;
   padding: 32px;
-  color: $color-text;
+  color: variables.$color-text;
   transition:
     box-shadow 200ms ease,
     transform 200ms ease;
@@ -152,7 +152,7 @@
           font-size: 12px;
           line-height: 100%;
           letter-spacing: 0%;
-          color: $color-text;
+          color: variables.$color-text;
           text-align: right;
 
           /* truncate long values (e.g. "6.5' OLED (Super Retina HD)") */
@@ -236,7 +236,7 @@
   box-shadow: 0 2px 15px 0 #0000001a;
 }
 
-@media (max-width: $mobile-max) {
+@media (max-width: variables.$mobile-max) {
   .card .media {
     height: 160px;
   }

@@ -1,17 +1,17 @@
-@import '../../styles/grid';
-@import '../../styles/variables';
+@use '../../styles/grid';
+@use '../../styles/variables';
 
 .homePage {
-  @include container;
+  @include grid.container;
 
   &__banner {
     padding: 24px 0;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       padding: 32px 0;
     }
 
-    @media (min-width: $desktop-min) {
+    @media (min-width: variables.$desktop-min) {
       padding: 56px 0;
     }
 
@@ -23,7 +23,7 @@
       line-height: 41px;
       letter-spacing: -1%;
 
-      @media (min-width: $tablet-min) {
+      @media (min-width: variables.$tablet-min) {
         font-size: 48px;
         line-height: 56px;
       }
@@ -36,17 +36,17 @@
   grid-column: 1 / -1;
   padding-bottom: 56px;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     padding-bottom: 64px;
   }
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     padding-bottom: 80px;
   }
 
   /* mobile: bleed past the homePage padding to full viewport width */
-  @media (max-width: calc($tablet-min - 1px)) {
-    margin-inline: (-$mobile-padding);
+  @media (max-width: calc(variables.$tablet-min - 1px)) {
+    margin-inline: (-(variables.$mobile-padding));
   }
 }
 
@@ -55,11 +55,11 @@
   grid-column: 1 / -1;
   padding: 56px 0;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     padding: 64px 0;
   }
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     padding: 80px 0;
   }
 
@@ -72,7 +72,7 @@
     letter-spacing: 0%;
     margin-bottom: 24px;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       font-size: 32px;
       line-height: 41px;
       letter-spacing: -1%;
@@ -85,7 +85,7 @@
   grid-template-columns: repeat(1, 1fr);
   gap: 32px;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     height: auto;
@@ -101,11 +101,11 @@
   cursor: pointer;
   min-height: 200px;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     min-height: 250px;
   }
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     min-height: 280px;
   }
 
@@ -127,15 +127,15 @@
     line-height: 100%;
     letter-spacing: 0%;
 
-    color: $color-text;
+    color: variables.$color-text;
     margin: 0;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       font-size: 24px;
       line-height: 31px;
     }
 
-    @media (min-width: $desktop-min) {
+    @media (min-width: variables.$desktop-min) {
       font-size: 28px;
       line-height: 35px;
     }

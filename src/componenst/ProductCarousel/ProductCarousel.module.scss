@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables';
 
 /* ─── Carousel wrapper ───────────────────────────────────────────────── */
 .carousel {
@@ -25,7 +25,7 @@
   line-height: 140%;
   color: #f1f2f9;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     font-size: 32px;
     line-height: 41px;
   }
@@ -76,7 +76,7 @@
   margin-left: calc(50% - 50vw);
   touch-action: pan-y;
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     width: 100%;
     margin-left: 0;
   }
@@ -100,39 +100,39 @@
    * Result: every snapped slide has a consistent left indent (the gap value),
    * because margin-left is included in the snap offset.
    */
-  margin-left: $mobile-gap; /* 16px gap on all slides */
+  margin-left: variables.$mobile-gap; /* 16px gap on all slides */
 
   /* first slide — use page padding instead of the gap */
   &:first-child {
-    margin-left: $mobile-padding; /* 16px — same as gap on mobile */
+    margin-left: variables.$mobile-padding; /* 16px — same as gap on mobile */
 
-    @media (min-width: $tablet-min) {
-      margin-left: $tablet-padding; /* 24px */
+    @media (min-width: variables.$tablet-min) {
+      margin-left: variables.$tablet-padding; /* 24px */
     }
 
-    @media (min-width: $desktop-min) {
+    @media (min-width: variables.$desktop-min) {
       margin-left: 0;
     }
   }
 
   /* last slide — right page-edge padding */
   &:last-child {
-    margin-right: $mobile-padding;
+    margin-right: variables.$mobile-padding;
 
-    @media (min-width: $tablet-min) {
-      margin-right: $tablet-padding;
+    @media (min-width: variables.$tablet-min) {
+      margin-right: variables.$tablet-padding;
     }
 
-    @media (min-width: $desktop-min) {
-      margin-right: $tablet-padding;
+    @media (min-width: variables.$desktop-min) {
+      margin-right: variables.$tablet-padding;
     }
   }
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     width: 237px !important;
   }
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     width: 272px !important;
   }
 }

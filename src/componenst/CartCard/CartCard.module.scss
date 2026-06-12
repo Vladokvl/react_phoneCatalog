@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables';
 
 .cartCard {
   display: flex;
@@ -6,12 +6,12 @@
   background: #161827;
   overflow: hidden;
   padding: 16px;
-  color: $color-text;
+  color: variables.$color-text;
   gap: 12px;
   width: 100%;
   max-width: 400px;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     flex-direction: row;
     align-items: center;
     gap: 16px;
@@ -19,7 +19,7 @@
     justify-content: space-between;
   }
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     max-width: none;
   }
 
@@ -30,7 +30,7 @@
     align-items: center;
     max-width: 360px;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       flex: 1;
       justify-content: space-between;
     }
@@ -93,7 +93,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       max-width: 300px;
     }
 
@@ -109,7 +109,7 @@
     justify-content: space-between;
     gap: 16px;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: variables.$tablet-min) {
       gap: 12px;
       align-items: center;
       justify-content: flex-start;
@@ -139,7 +139,7 @@
     width: 32px;
     height: 32px;
     background: none;
-    color: $color-text;
+    color: variables.$color-text;
     font-family: Mont, sans-serif;
     font-size: 18px;
     font-weight: 400;

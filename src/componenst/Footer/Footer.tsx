@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
 
 const base = import.meta.env.BASE_URL ?? '/';
@@ -36,26 +37,12 @@ const Footer: React.FC = () => {
           >
             GITHUB
           </a>
-          <a
-            href="#"
-            onClick={e => {
-              e.preventDefault();
-              scrollToTop();
-            }}
-            className={styles.footer__link}
-          >
+          <Link to="/contacts" className={styles.footer__link}>
             CONTACTS
-          </a>
-          <a
-            href="#"
-            onClick={e => {
-              e.preventDefault();
-              scrollToTop();
-            }}
-            className={styles.footer__link}
-          >
+          </Link>
+          <Link to="/rights" className={styles.footer__link}>
             RIGHTS
-          </a>
+          </Link>
         </div>
 
         {/* Back to Top */}

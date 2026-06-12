@@ -1,4 +1,4 @@
-@import './variables';
+@use 'variables';
 
 // Grid container mixin
 @mixin grid-container {
@@ -8,21 +8,21 @@
   justify-content: center; /* center grid on mobile and tablet */
 
   // Mobile: 4 columns, stretched
-  grid-template-columns: repeat($mobile-columns, 1fr);
-  gap: $mobile-gap;
+  grid-template-columns: repeat(variables.$mobile-columns, 1fr);
+  gap: variables.$mobile-gap;
 
   // Tablet: 12 columns, stretched
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     padding: 0;
-    grid-template-columns: repeat($tablet-columns, 1fr);
-    gap: $tablet-gap;
+    grid-template-columns: repeat(variables.$tablet-columns, 1fr);
+    gap: variables.$tablet-gap;
   }
 
   // Desktop: 24 columns, fixed width
-  @media (min-width: $desktop-min) {
-    max-width: $desktop-container-max;
-    grid-template-columns: repeat($desktop-columns, $desktop-column-width);
-    gap: $desktop-gap;
+  @media (min-width: variables.$desktop-min) {
+    max-width: variables.$desktop-container-max;
+    grid-template-columns: repeat(variables.$desktop-columns, variables.$desktop-column-width);
+    gap: variables.$desktop-gap;
     padding: 0;
   }
 }
@@ -31,11 +31,11 @@
 @mixin grid-span($mobile: 4, $tablet: 12, $desktop: 24) {
   grid-column: span $mobile;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     grid-column: span $tablet;
   }
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: variables.$desktop-min) {
     grid-column: span $desktop;
   }
 }
@@ -43,15 +43,15 @@
 // Full-width container (no grid, just max-width)
 @mixin container {
   width: 100%;
-  max-width: $desktop-container-max;
+  max-width: variables.$desktop-container-max;
   margin: 0 auto;
-  padding: 0 $mobile-padding;
+  padding: 0 variables.$mobile-padding;
 
-  @media (min-width: $tablet-min) {
-    padding: 0 $tablet-padding;
+  @media (min-width: variables.$tablet-min) {
+    padding: 0 variables.$tablet-padding;
   }
 
-  @media (min-width: $desktop-min) {
-    padding: 0 $desktop-padding;
+  @media (min-width: variables.$desktop-min) {
+    padding: 0 variables.$desktop-padding;
   }
 }

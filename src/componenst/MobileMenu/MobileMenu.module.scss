@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables';
 
 .menu {
   position: fixed;
@@ -19,7 +19,7 @@
     height: calc(100vh - 48px);
   }
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: variables.$tablet-min) {
     display: none;
   }
 
@@ -134,8 +134,8 @@
     top: 17px;
     left: 50%;
     right: auto;
-    background: $color-red;
-    color: $color-text;
+    background: variables.$color-red;
+    color: variables.$color-text;
     font-family: Mont, sans-serif;
     font-size: 9px;
     font-weight: 700;

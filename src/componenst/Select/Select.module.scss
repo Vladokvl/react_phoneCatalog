@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables';
 
 .selectContainer {
   position: relative;
@@ -21,7 +21,7 @@
   width: 100%;
   padding: 8px 12px;
   background-color: #323542;
-  color: $color-text;
+  color: variables.$color-text;
   font-family: Mont, sans-serif;
   font-size: 14px;
   line-height: 21px;
@@ -110,7 +110,7 @@
 
 .optionActive {
   background-color: #252836;
-  color: $color-accent;
+  color: variables.$color-accent;
   font-weight: 600;
 
   &:hover {
